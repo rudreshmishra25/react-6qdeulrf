@@ -1,15 +1,20 @@
 import React from 'react';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UserSignUpForm from './UserSignUpForm';
-import Navbar from './Navbar.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navbar from './Navbar';
+import LoginForm from './LoginForm';
+import Dashboard from './Dashboard'; // 👈 Create this component
 
 export default function App() {
   return (
-    <div>
+    <Router>
       <Navbar />
-      <UserSignUpForm />
-      <div className="container"></div>
-    </div>
+      <Routes>
+        <Route path="/" element={<LoginForm />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
 }
